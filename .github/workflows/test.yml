@@ -1,0 +1,17 @@
+name: Prueba Node.js
+
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3        # baja tu código
+      - name: Usar Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      - name: Instalar dependencias
+        run: npm install                  # aquí no hay paquetes, pero no falla
+      - name: Ejecutar prueba
+        run: node test.js                 # corre tu test
